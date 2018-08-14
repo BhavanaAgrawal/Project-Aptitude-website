@@ -1,7 +1,7 @@
 function signo(){
   console.log("sign out");
   firebase.auth().signOut().then(function() {
-    window.location.href = "https://aptipediasite.firebaseapp.com/login.html";
+    window.location.href = "https://aptipediasite.firebaseapp.com/htmllogin.html";
     // Sign-out successful.
   }).catch(function(error) {
     window.alert("Error: "+error.message);
