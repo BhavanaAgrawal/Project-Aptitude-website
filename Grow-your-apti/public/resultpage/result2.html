@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <title>Result page</title>
+        <script src="https://www.gstatic.com/firebasejs/5.3.1/firebase.js"></script>
+    </head>
+<body>
+
+    
+			<script>
+					var config = {
+					  apiKey: "AIzaSyCS6jFiz5eFew6WEyXYCgl88UOPnR4uEcc",
+					  authDomain: "aptipediasite.firebaseapp.com",
+					  databaseURL: "https://aptipediasite.firebaseio.com",
+					  projectId: "aptipediasite",
+					  storageBucket: "aptipediasite.appspot.com",
+					  messagingSenderId: "509127944690"
+					};
+					firebase.initializeApp(config);
+                  </script>
+                  
+                  <script 
+                  function questionbank(w){
+                    console.log("hey");
+                    var i;
+                    var ans;
+                    var bankno = "Bank" + w;
+                    for(i=1;i<=10;i++){
+                      var text = "q" + i;
+                      var sb = "startbtn" + i;
+                      document.getElementById(sb).style.display = "none";
+                      document.getElementById(text).style.display = "block";
+                    }
+                  
+                    var fireref = firebase.database().ref(bankno);
+                    i = 0;
+                  
+                      fireref.once("value",function(snap){
+                        snap.forEach(function(childsnap) {
+                          var childKey = childsnap.key;
+                          console.log(childKey);
+                          var qt = document.getElementById(childKey);
+                          var t_head = qt.tHead;
+                          var t_body = document.getElementsByTagName("tbody")[i];
+                          i++;
+                          t_head.children[0].children[0].innerHTML = snap.child(childKey+"/Answer").val();
+                          ans=snap.child(childkey+"/Answer").val();
+                        
+                        });
+                        var count=0;
+                       var answer=document.getElementById("option1".val);
+                       window.alert("answer"+ answer);
+                      
+                  
+                  }
+                  ></script>
+
+                  <button onclick="questionbank()" value="submit" id="button"></button>
+
+</body>
+
+</html>
