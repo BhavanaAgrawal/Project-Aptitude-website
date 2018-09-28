@@ -1,7 +1,7 @@
 function signo(){
   console.log("sign out");
   firebase.auth().signOut().then(function() {
-    window.location.href = "https://aptipediasite.firebaseapp.com/register1.html";
+    window.location.href = "https://aptipediasite.firebaseapp.com/login.html";
     // Sign-out successful.
   }).catch(function(error) {
     window.alert("Error: "+error.message);
@@ -36,6 +36,7 @@ function questionbank(w){
         t_body.rows[1].cells[1].innerHTML = snap.child(childKey+"/Options/1").val();
         t_body.rows[2].cells[1].innerHTML = snap.child(childKey+"/Options/2").val();
         t_body.rows[3].cells[1].innerHTML = snap.child(childKey+"/Options/3").val();
+        alert(snap.child(childKey+"/Answer").val());
       });
     });
 
