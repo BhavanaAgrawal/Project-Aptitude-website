@@ -1,27 +1,25 @@
 function signo(){
   console.log("sign out");
   firebase.auth().signOut().then(function() {
-    window.location.href = "https://aptipediasite.firebaseapp.com/login.html";
+    window.location.href = "https://aptipediasite.firebaseapp.com/htmllogin.html";
     // Sign-out successful.
   }).catch(function(error) {
     window.alert("Error: "+error.message);
     // An error happened.
   });
 }
+var bankno;
 
-var globalw;
 function questionbank(w){
   console.log("hey");
   var i;
-  globalw=w;
-  var bankno = "Bank" + w;
+  bankno = "Bank" + w;
   for(i=1;i<=10;i++){
     var text = "q" + i;
     var sb = "startbtn" + i;
     document.getElementById(sb).style.display = "none";
     document.getElementById(text).style.display = "block";
   }
-
   var fireref = firebase.database().ref(bankno);
   i = 0;
 
@@ -38,23 +36,26 @@ function questionbank(w){
         t_body.rows[1].cells[1].innerHTML = snap.child(childKey+"/Options/1").val();
         t_body.rows[2].cells[1].innerHTML = snap.child(childKey+"/Options/2").val();
         t_body.rows[3].cells[1].innerHTML = snap.child(childKey+"/Options/3").val();
-       
       });
     });
+    document.getElementById('carouselExampleControls').style.display = "none";
 
 }
 
-/*  function for answer*/
-
-function answer()
-{
-  var ref= firebase.database().ref("Bank1/q1/Answer");
-    ref.on('value',function(snapshot){
-    console.log(snapshot.val());
-    var data=snapshot.val();
-    document.getElementById("txt1").value=snapshot.val();
+document.getElementById('sub1').onclick = function answer(){
+    var bankn = bankno;
+    var i =1;
+    var fireref = firebase.database().ref(bankn);
+    fireref.once("value",function(snap){
+      snap.forEach(function(childsnap) {
+        var childKey = childsnap.key;
+        document.getElementById("txt"+i).style.display="block";
+        document.getElementById("txt"+i).readOnly = true;
+        document.getElementById("txt"+i).value=snap.child(childKey+"/Answer").val();
+        i++;
+      });
     });
-}
+  };
 
 /* functions defination over */
 

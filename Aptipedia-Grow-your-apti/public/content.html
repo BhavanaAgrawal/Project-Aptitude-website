@@ -17,6 +17,7 @@
     	table, th, td {
     		border: none;
     		border-collapse: collapse;
+        margin: 20px;
     	}
     	th, td {
     		padding: 5px;
@@ -30,93 +31,18 @@
       body{
         background-image: url("bg3.jpg")  ;
         background-size: cover;
-       
+
       }
       .con{
-        background-image: url(images/smoke.jpg);
+        //background-image: url(images/smoke.jpg);
         background-color: black;
       }
-      </style>
-  <script type="text/javascript">
-  //fetching from database
-
-    function dishide1()
-	{
-    document.getElementById("txt1").style.display="block";
-    document.getElementById("txt1").readOnly = true;
-    var ref= firebase.database().ref("Bank1/q1/Answer");
-    ref.on('value',function(snapshot){
-    console.log(snapshot.val());
-    var data=snapshot.val();
-    document.getElementById("txt1").value=snapshot.val();
-    });
-      
-  }
-	function dishide2()
-	{
-		document.getElementById("txt2").style.display="block";
-      document.getElementById("txt2").readOnly = true;
-	}
-	function dishide3()
-	{
-		document.getElementById("txt3").style.display="block";
-      document.getElementById("txt3").readOnly = true;
-	}
-	function dishide4()
-	{
-		document.getElementById("txt4").style.display="block";
-  document.getElementById("txt4").readOnly = true;
-	}
-	function dishide5()
-	{
-		document.getElementById("txt5").style.display="block";
-      document.getElementById("txt5").readOnly = true;
-	}
-	function dishide6()
-	{
-		document.getElementById("txt6").style.display="block";
-	  document.getElementById("txt6").readOnly = true;
-  }
-	function dishide7()
-	{
-		document.getElementById("txt7").style.display="block";
-	  document.getElementById("txt7").readOnly = true;
-  }
-	function dishide8()
-	{
-		document.getElementById("txt8").style.display="block";
-	   document.getElementById("txt8").readOnly = true;
-  }
-	function dishide9()
-	{
-		document.getElementById("txt9").style.display="block";
-	   document.getElementById("txt9").readOnly = true;
-  }
-	function dishide10()
-	{
-		document.getElementById("txt10").style.display="block";
-	  document.getElementById("txt10").readOnly = true;
-  } 
-  function displayAnswer(){
-    var bankno = "Bank" + 1;
-    var i =1;
-    var fireref = firebase.database().ref(bankno);
-    fireref.once("value",function(snap){
-      snap.forEach(function(childsnap) {
-        var childKey = childsnap.key;
-        document.getElementById("txt"+i).style.display="block";
-        document.getElementById("txt"+i).readOnly = true;
-        document.getElementById("txt"+i).value=snap.child(childKey+"/Answer").val();
-        i++;
-      });
-    });
-  } 
-
-	</script>     
-
-    
+    </style>
   </head>
   <body>
+    <script>
+
+    </script>
     <script>
       var config = {
       apiKey: "AIzaSyCS6jFiz5eFew6WEyXYCgl88UOPnR4uEcc",
@@ -137,8 +63,8 @@
           <!-- Add spacer, to align navigation to the right -->
          <div class="mdl-layout-spacer"></div>
           <!-- Navigation. We hide it in small screens. -->
-          <!--<nav class="mdl-navigation mdl-layout--large-screen-only">-->
-            <button type="button" onclick="signo()" class="mdl-button mdl-js-button mdl-button--raised mdl-button--primary">Sign Out <i class="material-icons" margin = "10px 0" >account_circle</i></button>
+          <!--<nav class="mdl-navigation mdl-layout large-screen-only">-->
+            <button type="button" onclick="signo()" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">Sign Out <i class="material-icons" margin = "10px 0" >account_circle</i></button>
         </div>
       </header><br>
       <!--<div class="mdl-layout__drawer">
@@ -150,13 +76,13 @@
           <a class="mdl-navigation__link" href="">Link</a>
         </nav>
       </div>-->
-      
-      
+
+
   <main class="mdl-layout__content">
     <div class="page-content">
       <div class="row">
       <!-- Your content goes here -->
-      
+
       <div class="col-lg-6" >
       <button type="button" name="bankbtn" id="startbtn1" onclick="questionbank('1')" class="btn btn-primary button1 ">Bank 1</button><br>
       <button type="button" name="bankbtn" id="startbtn2" onclick="questionbank('2')" class="btn btn-success button1">Bank 2</button><br>
@@ -170,7 +96,7 @@
       <button type="button" name="bankbtn" id="startbtn10" onclick="questionbank('10')" class="btn btn-info button1">Bank 10</button>
     </div>
 
-      <div class="col-lg-6" >
+      <div class="col-lg-6">
 
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
@@ -197,7 +123,6 @@
   </a>
 </div>
 </div>
-      
       <!--question 1 -->
       <table style="width:100%" class="table table-dark table-hover" id="q1">
         <thead>
@@ -210,27 +135,26 @@
 
           <tbody>
             <tr>
-              <td style="width: 75px"><input type="radio" name="optionsq1" id="option1" autocomplete="off"></td>
+              <td style="width: 75px"><input type="radio" name="optionsq1" id="option1" autocomplete="off" value="0"></td>
               <td></td>
 
             </tr>
             <tr >
-              <td style="width: 75px"><input type="radio" name="optionsq1" id="option2" autocomplete="off"></td>
+              <td style="width: 75px"><input type="radio" name="optionsq1" id="option2" autocomplete="off" value="1"></td>
               <td></td>
 
             </tr>
             <tr>
-              <td style="width: 75px"><input type="radio" name="optionsq1" id="option3" autocomplete="off"></td>
+              <td style="width: 75px"><input type="radio" name="optionsq1" id="option3" autocomplete="off" value="2"></td>
               <td></td>
             </tr>
             <tr>
-              <td style="width: 75px"><input type="radio" name="optionsq1" id="option4" autocomplete="off"></td>
+              <td style="width: 75px"><input type="radio" name="optionsq1" id="option4" autocomplete="off" value="3"></td>
               <td></td>
             </tr>
-            <tr>         	
+            <tr>
             	<td><input type="text" name="text1" id="txt1" value="" style="display: none"></td>
             	<td></td>
-
             </tr>
           </tbody>
 
@@ -247,27 +171,26 @@
 
           <tbody>
             <tr>
-              <td style="width: 75px"><input type="radio" name="optionsq2" id="option1" autocomplete="off"></td>
+              <td style="width: 75px"><input type="radio" name="optionsq2" id="option1" autocomplete="off" value="0"></td>
               <td></td>
 
             </tr>
             <tr >
-              <td style="width: 75px"><input type="radio" name="optionsq2" id="option2" autocomplete="off"></td>
+              <td style="width: 75px"><input type="radio" name="optionsq2" id="option2" autocomplete="off" value="1"></td>
               <td></td>
 
             </tr>
             <tr>
-              <td style="width: 75px"><input type="radio" name="optionsq2" id="option3" autocomplete="off"></td>
+              <td style="width: 75px"><input type="radio" name="optionsq2" id="option3" autocomplete="off" value="2"></td>
               <td></td>
             </tr>
             <tr>
-              <td style="width: 75px"><input type="radio" name="optionsq2" id="option4" autocomplete="off"></td>
+              <td style="width: 75px"><input type="radio" name="optionsq2" id="option4" autocomplete="off" value="3"></td>
               <td></td>
             </tr>
-            <tr>            	
+            <tr>
             	<td><input type="text" name="text1" id="txt2" value="" style="display: none"></td>
             	<td></td>
-
             </tr>
           </tbody>
 
@@ -284,27 +207,26 @@
 
           <tbody>
             <tr>
-              <td style="width: 75px"><input type="radio" name="optionsq3" id="option1" autocomplete="off"></td>
+              <td style="width: 75px"><input type="radio" name="optionsq3" id="option1" autocomplete="off" value="0"></td>
               <td></td>
 
             </tr>
             <tr >
-              <td style="width: 75px"><input type="radio" name="optionsq3" id="option2" autocomplete="off"></td>
+              <td style="width: 75px"><input type="radio" name="optionsq3" id="option2" autocomplete="off" value="1"></td>
               <td></td>
 
             </tr>
             <tr>
-              <td style="width: 75px"><input type="radio" name="optionsq3" id="option3" autocomplete="off"></td>
+              <td style="width: 75px"><input type="radio" name="optionsq3" id="option3" autocomplete="off" value="2"></td>
               <td></td>
             </tr>
             <tr>
-              <td style="width: 75px"><input type="radio" name="optionsq3" id="option4" autocomplete="off"></td>
+              <td style="width: 75px"><input type="radio" name="optionsq3" id="option4" autocomplete="off" value="3"></td>
               <td></td>
             </tr>
-            <tr>            	
+            <tr>
             	<td><input type="text" name="text1" id="txt3" value="" style="display: none"></td>
             	<td></td>
-
             </tr>
           </tbody>
 
@@ -321,27 +243,26 @@
 
           <tbody>
             <tr>
-              <td style="width: 75px"><input type="radio" name="optionsq4" id="option1" autocomplete="off"></td>
+              <td style="width: 75px"><input type="radio" name="optionsq4" id="option1" autocomplete="off" value="0"></td>
               <td></td>
 
             </tr>
             <tr >
-              <td style="width: 75px"><input type="radio" name="optionsq4" id="option2" autocomplete="off"></td>
+              <td style="width: 75px"><input type="radio" name="optionsq4" id="option2" autocomplete="off" value="1"></td>
               <td></td>
 
             </tr>
             <tr>
-              <td style="width: 75px"><input type="radio" name="optionsq4" id="option3" autocomplete="off"></td>
+              <td style="width: 75px"><input type="radio" name="optionsq4" id="option3" autocomplete="off" value="2"></td>
               <td></td>
             </tr>
             <tr>
-              <td style="width: 75px"><input type="radio" name="optionsq4" id="option4" autocomplete="off"></td>
+              <td style="width: 75px"><input type="radio" name="optionsq4" id="option4" autocomplete="off" value="3"></td>
               <td></td>
             </tr>
-            <tr>            	
+            <tr>
             	<td><input type="text" name="text1" id="txt4" value="" style="display: none"></td>
             	<td></td>
-
             </tr>
           </tbody>
       </table>
@@ -357,27 +278,26 @@
 
           <tbody>
             <tr>
-              <td style="width: 75px"><input type="radio" name="optionsq5" id="option1" autocomplete="off"></td>
+              <td style="width: 75px"><input type="radio" name="optionsq5" id="option1" autocomplete="off" value="0"></td>
               <td></td>
 
             </tr>
             <tr >
-              <td style="width: 75px"><input type="radio" name="optionsq5" id="option2" autocomplete="off"></td>
+              <td style="width: 75px"><input type="radio" name="optionsq5" id="option2" autocomplete="off" value="1"></td>
               <td></td>
 
             </tr>
             <tr>
-              <td style="width: 75px"><input type="radio" name="optionsq5" id="option3" autocomplete="off"></td>
+              <td style="width: 75px"><input type="radio" name="optionsq5" id="option3" autocomplete="off" value="2"></td>
               <td></td>
             </tr>
             <tr>
-              <td style="width: 75px"><input type="radio" name="optionsq5" id="option4" autocomplete="off"></td>
+              <td style="width: 75px"><input type="radio" name="optionsq5" id="option4" autocomplete="off" value="3"></td>
               <td></td>
             </tr>
-            <tr>            	
+            <tr>
             	<td><input type="text" name="text1" id="txt5" value="" style="display: none"></td>
             	<td></td>
-
             </tr>
           </tbody>
       </table>
@@ -393,27 +313,26 @@
 
           <tbody>
             <tr>
-              <td style="width: 75px"><input type="radio" name="optionsq6" id="option1" autocomplete="off"></td>
+              <td style="width: 75px"><input type="radio" name="optionsq6" id="option1" autocomplete="off" value="0"></td>
               <td></td>
 
             </tr>
             <tr >
-              <td style="width: 75px"><input type="radio" name="optionsq6" id="option2" autocomplete="off"></td>
+              <td style="width: 75px"><input type="radio" name="optionsq6" id="option2" autocomplete="off" value="1"></td>
               <td></td>
 
             </tr>
             <tr>
-              <td style="width: 75px"><input type="radio" name="optionsq6" id="option3" autocomplete="off"></td>
+              <td style="width: 75px"><input type="radio" name="optionsq6" id="option3" autocomplete="off" value="2"></td>
               <td></td>
             </tr>
             <tr>
-              <td style="width: 75px"><input type="radio" name="optionsq6" id="option4" autocomplete="off"></td>
+              <td style="width: 75px"><input type="radio" name="optionsq6" id="option4" autocomplete="off" value="3"></td>
               <td></td>
             </tr>
-            <tr>            	
+            <tr>
             	<td><input type="text" name="text1" id="txt6" value="" style="display: none"></td>
             	<td></td>
-
             </tr>
           </tbody>
       </table>
@@ -429,27 +348,26 @@
 
           <tbody>
             <tr>
-              <td style="width: 75px"><input type="radio" name="optionsq7" id="option1" autocomplete="off"></td>
+              <td style="width: 75px"><input type="radio" name="optionsq7" id="option1" autocomplete="off" value="0"></td>
               <td></td>
 
             </tr>
             <tr >
-              <td style="width: 75px"><input type="radio" name="optionsq7" id="option2" autocomplete="off"></td>
+              <td style="width: 75px"><input type="radio" name="optionsq7" id="option2" autocomplete="off" value="1"></td>
               <td></td>
 
             </tr>
             <tr>
-              <td style="width: 75px"><input type="radio" name="optionsq7" id="option3" autocomplete="off"></td>
+              <td style="width: 75px"><input type="radio" name="optionsq7" id="option3" autocomplete="off" value="2"></td>
               <td></td>
             </tr>
             <tr>
-              <td style="width: 75px"><input type="radio" name="optionsq7" id="option4" autocomplete="off"></td>
+              <td style="width: 75px"><input type="radio" name="optionsq7" id="option4" autocomplete="off" value="3"></td>
               <td></td>
             </tr>
-            <tr>            	
+            <tr>
             	<td><input type="text" name="text1" id="txt7" value="" style="display: none"></td>
             	<td></td>
-
             </tr>
           </tbody>
       </table>
@@ -465,27 +383,26 @@
 
           <tbody>
             <tr>
-              <td style="width: 75px"><input type="radio" name="optionsq8" id="option1" autocomplete="off"></td>
+              <td style="width: 75px"><input type="radio" name="optionsq8" id="option1" autocomplete="off" value="0"></td>
               <td></td>
 
             </tr>
             <tr >
-              <td style="width: 75px"><input type="radio" name="optionsq8" id="option2" autocomplete="off"></td>
+              <td style="width: 75px"><input type="radio" name="optionsq8" id="option2" autocomplete="off" value="1"></td>
               <td></td>
 
             </tr>
             <tr>
-              <td style="width: 75px"><input type="radio" name="optionsq8" id="option3" autocomplete="off"></td>
+              <td style="width: 75px"><input type="radio" name="optionsq8" id="option3" autocomplete="off" value="2"></td>
               <td></td>
             </tr>
             <tr>
-              <td style="width: 75px"><input type="radio" name="optionsq8" id="option4" autocomplete="off"></td>
+              <td style="width: 75px"><input type="radio" name="optionsq8" id="option4" autocomplete="off" value="3"></td>
               <td></td>
             </tr>
-            <tr>            	
+            <tr>
             	<td><input type="text" name="text1" id="txt8" value="" style="display: none"></td>
             	<td></td>
-
             </tr>
           </tbody>
 
@@ -502,27 +419,26 @@
 
           <tbody>
             <tr>
-              <td style="width: 75px"><input type="radio" name="optionsq9" id="option1" autocomplete="off"></td>
+              <td style="width: 75px"><input type="radio" name="optionsq9" id="option1" autocomplete="off" value="0"></td>
               <td></td>
 
             </tr>
             <tr >
-              <td style="width: 75px"><input type="radio" name="optionsq9" id="option2" autocomplete="off"></td>
+              <td style="width: 75px"><input type="radio" name="optionsq9" id="option2" autocomplete="off" value="1"></td>
               <td></td>
 
             </tr>
             <tr>
-              <td style="width: 75px"><input type="radio" name="optionsq9" id="option3" autocomplete="off"></td>
+              <td style="width: 75px"><input type="radio" name="optionsq9" id="option3" autocomplete="off" value="2"></td>
               <td></td>
             </tr>
             <tr>
-              <td style="width: 75px"><input type="radio" name="optionsq9" id="option4" autocomplete="off"></td>
+              <td style="width: 75px"><input type="radio" name="optionsq9" id="option4" autocomplete="off" value="3"></td>
               <td></td>
             </tr>
-            <tr>            	
+            <tr>
             	<td><input type="text" name="text1" id="txt9" value="" style="display: none"></td>
             	<td></td>
-
             </tr>
           </tbody>
 
@@ -539,44 +455,38 @@
 
           <tbody>
             <tr>
-              <td style="width: 75px"><input type="radio" name="optionsq10" id="option1" autocomplete="off"></td>
+              <td style="width: 75px"><input type="radio" name="optionsq10" id="option1" autocomplete="off" value="0"></td>
               <td></td>
 
             </tr>
             <tr >
-              <td style="width: 75px"><input type="radio" name="optionsq10" id="option2" autocomplete="off"></td>
+              <td style="width: 75px"><input type="radio" name="optionsq10" id="option2" autocomplete="off" value="1"></td>
               <td></td>
 
             </tr>
             <tr>
-              <td style="width: 75px"><input type="radio" name="optionsq10" id="option3" autocomplete="off"></td>
+              <td style="width: 75px"><input type="radio" name="optionsq10" id="option3" autocomplete="off" value="2"></td>
               <td></td>
             </tr>
             <tr>
-              <td style="width: 75px"><input type="radio" name="optionsq10" id="option4" autocomplete="off"></td>
+              <td style="width: 75px"><input type="radio" name="optionsq10" id="option4" autocomplete="off" value="3"></td>
               <td></td>
             </tr>
-            <tr>            	
+            <tr>
             	<td><input type="text" name="text1" id="txt10" value="" style="display: none"></td>
             	<td></td>
-
             </tr>
           </tbody>
 
       </table>
-      <div style="align-items: center">
-        <button type="button" name="ansbtn" id="btn1" onclick="displayAnswer()" class="btn btn-inverse button2">SUBMIT</button>
-      </div>
       <!-- questions over-->
-        <!--<div class="conatiner" align="center">
-        <button type="button" class="btn btn-dark">Submit</button>
-        </div>-->
-
+        <div class="conatiner" align="center">
+        <button type="button" id="sub1" onclick = "answer()" class="btn btn-dark" style="margin-left:720px; margin-top:50px; margin-bottom: 100px" >Submit</button>
+        </div>
     </div>
   </main>
 </div>
-
-<script src="content.js"></script>
+<script type="text/javascript" src="content.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" ></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.4/js/tether.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" ></script>
